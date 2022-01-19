@@ -13,10 +13,10 @@ function processData(datum) {
   return dataItem;
 }
 
-var globalData;
+// var globalData;
 
 function graph(data, id) {
-  console.log(id, data);
+  // console.log(id, data);
 
   globalData = data; // so we have access to our data in the console
 
@@ -43,9 +43,10 @@ function graph(data, id) {
 
   let stripeWidth = 4;
   let stripeHeight = 300;
+
   let avgData = data.map((d) => d.avg);
 
-  let delta = d3.select(id);
+  // let delta = d3.select(id);
   let linearScaleForData = d3
     .scaleLinear()
     .domain([d3.min(avgData), d3.max(avgData)])
@@ -71,4 +72,5 @@ function graph(data, id) {
     .attr("x", (d, i) => i * stripeWidth)
     .attr("y", 0)
     .style("fill", (d, i) => colors[Math.round(linearScaleForData(d.avg))]);
+		// .on("mouseover", (d) => console.log(d.year));
 }
